@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hysec.dao.OrdersMapper" >
+  <resultMap id="BaseResultMap" type="com.cn.hysec.entity.Orders" >
+    <id column="oder_number" property="oderNumber" jdbcType="INTEGER" />
+    <result column="res_id" property="resId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="oeder_date" property="oederDate" jdbcType="VARCHAR" />
+    <result column="order_batch" property="orderBatch" jdbcType="VARCHAR" />
+    <result column="order_quantity" property="orderQuantity" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <insert id="insertOrders">
+    insert into t_orders (res_id, user_id, 
+      oeder_date, order_batch, order_quantity
+      )
+    values
+     <foreach collection="list" item="item" separator="," >
+     (#{item.resId,jdbcType=INTEGER}, #{item.userId,jdbcType=INTEGER}, 
+      #{item.oederDate,jdbcType=TIMESTAMP}, #{item.orderBatch,jdbcType=VARCHAR}, #{item.orderQuantity,jdbcType=INTEGER}
+      )
+      </foreach>
+  </insert>
+  <delete id="deleteByUserAndRes">
+    delete from t_orders
+    where user_id = #{0} and order_batch = "0"
+  </delete>
+</mapper>

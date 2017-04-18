@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hysec.dao.OfficeSuppliesMapper" >
+  <resultMap id="BaseResultMap" type="com.cn.hysec.entity.OfficeSupplies" >
+    <id column="res_id" property="resId" jdbcType="INTEGER" />
+    <result column="res_name" property="resName" jdbcType="VARCHAR" />
+    <result column="res_price" property="resPrice" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    res_id, res_name, res_price
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_office_supplies
+    where res_id = #{resId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_office_supplies
+    where res_id = #{resId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.hysec.entity.OfficeSupplies" >
+    insert into t_office_supplies (res_id, res_name, res_price
+      )
+    values (#{resId,jdbcType=INTEGER}, #{resName,jdbcType=VARCHAR}, #{resPrice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.hysec.entity.OfficeSupplies" >
+    insert into t_office_supplies
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="resId != null" >
+        res_id,
+      </if>
+      <if test="resName != null" >
+        res_name,
+      </if>
+      <if test="resPrice != null" >
+        res_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="resId != null" >
+        #{resId,jdbcType=INTEGER},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="resPrice != null" >
+        #{resPrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.hysec.entity.OfficeSupplies" >
+    update t_office_supplies
+    <set >
+      <if test="resName != null" >
+        res_name = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="resPrice != null" >
+        res_price = #{resPrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where res_id = #{resId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.hysec.entity.OfficeSupplies" >
+    update t_office_supplies
+    set res_name = #{resName,jdbcType=VARCHAR},
+      res_price = #{resPrice,jdbcType=DECIMAL}
+    where res_id = #{resId,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select * from t_office_supplies order by res_id;
+  </select>
+</mapper>
