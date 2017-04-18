@@ -15,7 +15,6 @@ public class OfficeSuppliesServiceImpl implements OfficeSuppliesService {
 
 	@Resource
 	private OfficeSuppliesMapper office;
-	@Override
 	public List<OfficeSupplies> selectAll() {
 		// TODO Auto-generated method stub
 		return office.selectAll();

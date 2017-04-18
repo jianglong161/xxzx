@@ -15,12 +15,10 @@ public class MenuServiceImpl implements MenuService {
 
 	@Resource  
 	private MenuMapper menuDao;
-	@Override
 	public List<Menu> selectMenuByUserId(int id) {
 		// TODO Auto-generated method stub
 		return menuDao.selectMenuByUserId(id);
 	}
-	@Override
 	public Menu selectById(int id) {
 		// TODO Auto-generated method stub
 		return menuDao.selectById(id);

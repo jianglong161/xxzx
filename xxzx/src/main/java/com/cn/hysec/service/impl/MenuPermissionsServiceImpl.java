@@ -13,7 +13,7 @@ public class MenuPermissionsServiceImpl implements MenuPermissionService {
 
 	@Resource
 	private MenuPermissionsMapper permissiondao;
-	@Override
+	
 	public MenuPermissions getPermissionByUserId(int userId, int menuId) {
 		// TODO Auto-generated method stub
 		return permissiondao.getPermissionByUserId(userId, menuId);

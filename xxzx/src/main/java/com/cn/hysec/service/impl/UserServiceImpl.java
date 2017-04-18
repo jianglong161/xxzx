@@ -13,12 +13,10 @@ public class UserServiceImpl implements UserService {
 
 	@Resource  
 	private UserMapper userDao;
-	@Override
 	public User getUserById(int userId) {
 		// TODO Auto-generated method stub
 		return userDao.getUserById(userId);
 	}
-	@Override
 	public User login(int userId,String password) {
 		return userDao.login(userId,password);
 	}

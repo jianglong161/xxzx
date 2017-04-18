@@ -14,7 +14,6 @@ import com.cn.hysec.service.orderServies;
 public class OrderServiceImpl implements orderServies {
 	@Resource
 	private OrdersMapper order;
-	@Override
 	public int insertOrders(List<Orders> list) throws Exception{
 		// TODO Auto-generated method stub
 		int i = 0;
@@ -25,7 +24,6 @@ public class OrderServiceImpl implements orderServies {
 		System.out.println(list.get(1).getUserId()+"-------"+list.get(1).getUserId());
 		return i;// order.insertOrders(list);
 	}
-	@Override
 	public int deleteByUserAndRes(int userId) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
