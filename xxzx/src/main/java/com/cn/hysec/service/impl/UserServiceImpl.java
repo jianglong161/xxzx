@@ -20,4 +20,10 @@ public class UserServiceImpl implements UserService {
 	public User login(int userId,String password) {
 		return userDao.login(userId,password);
 	}
+	/**
+	 * 插入用户
+	 */
+	public int insert(User user) {
+		return userDao.insert(user);
+	}
 }
