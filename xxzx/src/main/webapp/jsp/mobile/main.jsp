@@ -33,7 +33,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	for(int i=0;i<menuList.size();i++){
   		Menu menu =menuList.get(i);
   		%>
-  		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="/xxzx/menu/pagechange.do?id=<%=menu.getMenuId()%>">
+  		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+  			<a href="/xxzx/menu/pagechange.do?id=<%=menu.getMenuId()%>">
 		<span class="mui-icon mui-icon-home"></span>
 		<div class="mui-media-body"><%=menu.getMenuName()%></div></a></li>
   		<%

@@ -142,8 +142,12 @@
 						//mui.alert(pwb.value, 'Hello MUI');
 						  $.ajax({
 							type: "POST",
-							url: '/xxzx/user/login.do',
-			    			data: {id:userid.value,password:pwb.value},
+							url: '/xxzx/user/logup.do',
+			    			data: {
+			    				id:userid.value,
+			    				password:pwb.value
+			    				},
+			    			}
 							dataType:'json',
 							cache: false,
 							success: function(data){

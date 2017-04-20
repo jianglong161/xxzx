@@ -10,7 +10,7 @@ import java.util.Date;
 public class QueryofficeSupplies {
 	private Integer orderQuantity;
 	private String resName;
-	private Date oederDate;
+	private String oederDate;
 	public String toString(){
 		return "QueryofficeSupplies [orderQuantity=" + orderQuantity + 
 				", resName=" + resName + 
@@ -30,10 +30,10 @@ public class QueryofficeSupplies {
 	public void setResName(String resName) {
 		this.resName = resName;
 	}
-	public Date getOederDate() {
+	public String getOederDate() {
 		return oederDate;
 	}
-	public void setOederDate(Date oederDate) {
+	public void setOederDate(String oederDate) {
 		this.oederDate = oederDate;
 	}
 	 

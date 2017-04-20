@@ -18,9 +18,9 @@
 	<!-- 配置数据源，记得去掉myBatis-config.xml的数据源相关配置 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">			
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://192.168.1.201:3306/hysec?useUnicode=true&amp;characterEncoding=UTF-8" />
-		<property name="username" value="hysec" />
-		<property name="password" value="123456" />		
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/mybatis?useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="username" value="root" />
+		<property name="password" value="abcd1234" />		
 	</bean>
 	<!-- 配置session工厂 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

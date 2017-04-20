@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hysec.dao.QueryofficeSuppliesMapper" >
+	 <resultMap id="BaseResultMap" type="com.cn.hysec.entity.QueryofficeSupplies" >
+    	<result column="order_quantity" property="orderQuantity" jdbcType="INTEGER" />
+    	
+    	<result column="oeder_date"     property="oederDate"     jdbcType="VARCHAR" />
+    	<result column="res_name"       property="resName"         jdbcType="VARCHAR" />
+  	</resultMap>
+   <select id="queryOffice" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+	   SELECT  
+	   		order_quantity ,res_name ,oeder_date 
+	   FROM 
+	   		t_office_supplies AS t ,t_orders AS a
+	   WHERE  
+	   		t.res_id=a.res_id 
+	   AND 
+	   		user_id=#{userId}
+  </select>
+</mapper>
