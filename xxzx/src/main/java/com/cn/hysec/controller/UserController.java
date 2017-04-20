@@ -45,7 +45,7 @@ public class UserController {
     	
     	String password = request.getParameter("password");
     	//密码加密
-    	User user = this.userService.login(userId, MD5Util.MD5(password));
+    	User user = this.userService.login(userId, password);
     	
     	if(user != null){
 			HttpSession session =  request.getSession();
@@ -61,7 +61,7 @@ public class UserController {
 		return map;
     }
     /**
-     * 
+     * 注册
      */
     @RequestMapping("logup")
     @ResponseBody
