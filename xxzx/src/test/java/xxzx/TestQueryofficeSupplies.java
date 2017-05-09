@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.cn.hysec.dao.QueryofficeSuppliesMapper;
 import com.cn.hysec.entity.QueryofficeSupplies;
+import com.cn.hysec.service.UserService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations ={
         "classpath:spring-mybatis.xml"
@@ -22,10 +23,18 @@ import com.cn.hysec.entity.QueryofficeSupplies;
 public class TestQueryofficeSupplies {
 	@Resource
 	private QueryofficeSuppliesMapper oQueryofficeSupplies;
+	@Resource
+	private UserService userService;
 	private static Logger logger = Logger.getLogger(TestMyBatis.class);  
 	@Test
 	public void testqueery(){
 		List<QueryofficeSupplies> list=	oQueryofficeSupplies.queryOffice(12);
 		System.out.println("------------" +list.toString());
+	}
+	@Test
+	public void testRole(){
+		String account="12";
+		String roleName=userService.findRoles(account);
+		System.out.println("-------------------"+roleName);
 	}
 }
