@@ -6,14 +6,14 @@ package com.cn.hysec.entity;
  */
 public class UserRole {
 	private int roleId;
-	private String userName;
+	private String roleName;
 	private String createdTime;
 	private String updateTime;
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "UserRole [roleId=" + roleId + ", "
-		+ "userName=" + userName + ", "
+		+ "roleName=" + roleName + ", "
 		+ "createdTime=" + createdTime + ", "
 		+ "updateTime=" + updateTime + ", "
 		+ "toString()=" + super.toString() + "]";
@@ -25,11 +25,11 @@ public class UserRole {
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
 	}
-	public String getUserName() {
-		return userName;
+	public String getroleName() {
+		return roleName;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setroleName(String roleName) {
+		this.roleName = roleName;
 	}
 	public String getCreatedTime() {
 		return createdTime;
