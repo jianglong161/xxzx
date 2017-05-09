@@ -3,8 +3,14 @@ package com.cn.hysec.entity;
 public class User {
     @Override
 	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ", password=" + password + ", phoneNumber="
-				+ phoneNumber + ", idCord=" + idCord + ", toString()=" + super.toString() + "]";
+		return "User [userId=" + userId + ", "
+				+ "userName=" + userName + ", "
+				+ "account=" + account + ", "
+				+ "password=" + password + ", "
+				+ "phoneNumber="+ phoneNumber + ", "
+				+ "idCord=" + idCord +","
+				+ " roleId=" + roleId+ ", "
+				+ "toString()=" + super.toString() + "]";
 	}
 
 	private Integer userId;
@@ -16,8 +22,20 @@ public class User {
     private Integer phoneNumber;
 
     private String idCord;
+    private String account;
+    
+    
+    //4.28
+    private String roleId;
+    public String getRoleId() {
+		return roleId;
+	}
 
-    public Integer getUserId() {
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+	}
+
+	public Integer getUserId() {
         return userId;
     }
 
@@ -56,4 +74,13 @@ public class User {
     public void setIdCord(String idCord) {
         this.idCord = idCord == null ? null : idCord.trim();
     }
+
+	public String getAccount() {
+		return account;
+	}
+
+	public void setAccount(String account) {
+		this.account = account;
+	}
+    
 }
