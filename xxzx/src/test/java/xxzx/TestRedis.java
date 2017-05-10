@@ -2,9 +2,11 @@ package xxzx;
 
 import org.junit.Test;
 
-import redis.clients.jedis.Jedis;
+
+//import redis.clients.jedis.Jedis;
 
 public class TestRedis {
+	/*
 	@Test
 	public void redis(){
 		Jedis jedis=new Jedis("192.168.31.132",6379);
@@ -18,4 +20,5 @@ public class TestRedis {
 	      // Get the stored data and print it 
 	      System.out.println("Stored string in redis:: "+ jedis.get("tutorial-name")); 
 	}
+	*/
 }

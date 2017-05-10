@@ -14,6 +14,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.cn.hysec.dao.QueryofficeSuppliesMapper;
 import com.cn.hysec.entity.QueryofficeSupplies;
+import com.cn.hysec.entity.UserPermission;
+import com.cn.hysec.entity.UserRole;
 import com.cn.hysec.service.UserService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations ={
@@ -34,7 +36,7 @@ public class TestQueryofficeSupplies {
 	@Test
 	public void testRole(){
 		String account="12";
-		String roleName=userService.findRoles(account);
+		UserPermission roleName=userService.findPermissions(account);
 		System.out.println("-------------------"+roleName);
 	}
 }

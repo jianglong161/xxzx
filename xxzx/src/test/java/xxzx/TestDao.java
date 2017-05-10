@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cn.hysec.dao.UserMapper;
 import com.cn.hysec.entity.User;
+import com.cn.hysec.entity.UserPermission;
+import com.cn.hysec.entity.UserRole;
 @RunWith(SpringJUnit4ClassRunner.class)
 //这里使用test/resources/里面的spring-dao-test.xml整入了事务的配置，用于回滚操作
 @ContextConfiguration({"classpath:spring-mybatis.xml"})
@@ -36,7 +38,13 @@ public class TestDao {
 	@Test
 	public void testRole(){
 		String account="12";
-		String roleName=userDao.findRoles(account);
+		UserRole roleName=userDao.findRoles(account);
 		System.out.println(roleName);
+	}
+	@Test
+	public  void testPremiison(){
+		String account ="12";
+		UserPermission premissionRole=userDao.findPermissions(account);
+		System.out.println("-------------"+premissionRole);
 	}
 }
