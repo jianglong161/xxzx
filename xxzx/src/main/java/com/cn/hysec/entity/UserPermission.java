@@ -5,26 +5,20 @@ package com.cn.hysec.entity;
  *
  */
 public class UserPermission {
-	private int id;
 	private int permissionId;
 	private String permissionName;
 	private String createTime;
 	private String updateTime;
 	@Override
 	public String toString(){
-		return "UserPermission [id=" + id + ", "
-				+ "permissionId=" + permissionId + ", "
+		return "UserPermission [permissionId=" + permissionId + ", "
+				
 				+ "permissionName=" + permissionName + ", "
 				+ "createTime="+ createTime + ", "
 				+ "updateTime=" + updateTime +","
 				+ "toString()=" + super.toString() + "]";
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 	public int getPermissionId() {
 		return permissionId;
 	}
