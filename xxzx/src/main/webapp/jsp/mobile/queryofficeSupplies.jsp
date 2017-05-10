@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -23,6 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+ 
     <header class="mui-bar mui-bar-nav">
 		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		<h1 class="mui-title">办公用品查询</h1>
@@ -139,7 +140,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		/* 	$.ajax({
 				type: "POST",
 				url: '/xxzx/officeSupplies/tjlist.do',
-			    data: {map:map,lis:lis},
+			    data: {map	:map,lis:lis},
 				dataType:'json',
 				cache: false,
 				success: function(data){}
