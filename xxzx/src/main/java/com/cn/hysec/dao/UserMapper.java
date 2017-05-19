@@ -34,7 +34,7 @@ public interface UserMapper {
 	 */
 	public User findUserByUserName(String account);
 	/**
-	 * 查询用户角色登记
+	 * 查询用户角色等级
 	 */
 	public UserRole findUserRoleId(int roleId);
 }
