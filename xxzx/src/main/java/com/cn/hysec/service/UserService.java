@@ -50,4 +50,5 @@ public interface UserService {
 	 * 查询用户角色等级
 	 */
 	public UserRole findUserRoleId(int roleId);
+	
 }
