@@ -68,11 +68,16 @@
       menu_link = #{menuLink,jdbcType=VARCHAR}
     where menu_id = #{menuId,jdbcType=INTEGER}
   </update>
-  <select id="selectMenuByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectMenuByUserIdAdmin" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select *
-    from t_menu
+    from t_menu 
+  </select>
+ 	 <select id="selectMenuByUserIdUser" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select *
+    from t_menu  where menu_id &lt;= #{id}
 
   </select>
+  
     <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select * from t_menu where menu_id = #{id}
   </select>
