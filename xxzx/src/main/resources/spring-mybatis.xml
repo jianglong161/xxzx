@@ -71,7 +71,6 @@
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="myRealm"/>
     </bean>
-    
 	 <!-- Shiro过滤器 核心-->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <!-- Shiro的核心安全接口,这个属性是必须的 -->
@@ -90,24 +89,23 @@
                 		
                 		 -->
                 /login=anon
-
+				
                 <!--authc表示需要认证 没有进行身份认证是不能进行访问的-->
                 <!-- /admin*=authc表示 /admin,/admin1
                 	,/admin2这样的请求都是需要进行身份认证的，不然是不能访问的。
                 	 -->
-                	 /menu/**=authc
+                /menu/**=authc
                 
-
+					
                <!-- /student=roles[teacher]表示访问
                /student请求的用户必须是teacher角色，不然是不能进行访问的。
                /student=roles[teacher]
-                -->
-                
-                <!-- /teacher=perms[“user:create”]
+                -->/menu/pagechange=roles[user]
+  				
+                <!-- /teacher=perms[“user:create]
                 	表示访问/teacher请求是需要当前用户具有user:create权限才能进行访问的。
-                	
-                	 -->
-                /mobile/**=perms["user:create"]
+                -->
+                /mobile/*=perms[“ser:view”]
             </value>
         </property>
     </bean>
