@@ -102,7 +102,7 @@
         	t_user_role
         where role_id=#{0}
     </select>
-
+	
     <select id="findPermissions" parameterType="String" resultMap="BaseResultMapPermission">
 	    SELECT 
 	    	p.permission_name 
