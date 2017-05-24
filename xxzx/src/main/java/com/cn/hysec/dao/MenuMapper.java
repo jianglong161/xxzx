@@ -17,6 +17,12 @@ public interface MenuMapper {
 
     int updateByPrimaryKey(Menu record);*/
 	
-	public List<Menu> selectMenuByUserId(int id);
+	public List<Menu> selectMenuByUserIdAdmin(int id);
+	/**
+	 *  根据权限查询
+	 * @param id
+	 * @return
+	 */
+	public List<Menu> selectMenuByUserIdUser(int id);
 	
 }
