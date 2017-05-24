@@ -4,6 +4,14 @@ import java.util.List;
 import com.cn.hysec.entity.Menu;
 
 public interface MenuService {
-	List<Menu>  selectMenuByUserId(int id);
+	
 	Menu selectById(int id);
+	
+	public List<Menu> selectMenuByUserIdAdmin(int id);
+	/**
+	 *  根据权限查询
+	 * @param id
+	 * @return
+	 */
+	public List<Menu> selectMenuByUserIdUser(int id);
 }
