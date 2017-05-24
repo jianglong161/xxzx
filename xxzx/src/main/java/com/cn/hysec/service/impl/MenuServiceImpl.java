@@ -15,13 +15,18 @@ public class MenuServiceImpl implements MenuService {
 
 	@Resource  
 	private MenuMapper menuDao;
-	public List<Menu> selectMenuByUserId(int id) {
-		// TODO Auto-generated method stub
-		return menuDao.selectMenuByUserId(id);
-	}
+	
 	public Menu selectById(int id) {
 		// TODO Auto-generated method stub
 		return menuDao.selectById(id);
+	}
+	public List<Menu> selectMenuByUserIdAdmin(int id) {
+		// TODO Auto-generated method stub
+		return menuDao.selectMenuByUserIdAdmin(id);
+	}
+	public List<Menu> selectMenuByUserIdUser(int id) {
+		// TODO Auto-generated method stub
+		return menuDao.selectMenuByUserIdUser(id);
 	}
 
 
