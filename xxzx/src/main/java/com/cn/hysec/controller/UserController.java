@@ -52,25 +52,19 @@ public class UserController {
     @RequestMapping("login")
     @ResponseBody
     public Map<String,Object> login(HttpServletRequest request){
-    	
     	Map<String, Object> map = new HashMap<String, Object>();
-    	int userId = Integer.parseInt(request.getParameter("id"));
     	String account=request.getParameter("id");
     	String password = request.getParameter("password");
     	//密码加密username
-    
-    
-    	//User user1=userService.findUserByUserName(account);
-    	
-    	//logger.debug(user.toString());
+    	User user=userService.findPassByAccount(account);
+    	int userId=user.getUserId();
     	Subject subject=SecurityUtils.getSubject();
-    	//String userName=user.getUserName();
     	UsernamePasswordToken token=
     			new UsernamePasswordToken(account,password);
     	try{
     		subject.login(token);
     		if(subject.isAuthenticated()){
-    			User user = userService.login(userId, password);
+    			//User user = userService.login(userId, password);
     			HttpSession session =  request.getSession();
     			session.setAttribute("account", user);
     			session.setAttribute("userId", user.getUserId());
