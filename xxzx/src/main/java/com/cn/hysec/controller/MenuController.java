@@ -31,9 +31,25 @@ public class MenuController {
 	private UserService userService;
 	@RequestMapping("showMenu")
 	public String getMenu(HttpServletRequest request,Model model){
-		int userId = Integer.parseInt(request.getParameter("id"));
-		List<Menu> menuList = menuService.selectMenuByUserId(userId);
-		model.addAttribute("menu", menuList);
+		//int userId = Integer.parseInt(request.getParameter("id"));
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("account");
+		int userId=user.getUserId();
+		String account=user.getAccount();
+		Role roleName=userService.findRoles(account);
+		int roleid=roleName.getRoleId();
+		UserRole userRole=userService.findUserRoleId(roleid);
+		/**
+		 * 判断用户权限
+		 */
+		if(userRole.getId()==1){
+			List<Menu> menuList = menuService.selectMenuByUserIdAdmin(userId);
+			model.addAttribute("menu", menuList);
+		}
+		if(userRole.getId()==2){
+			List<Menu> menuList = menuService.selectMenuByUserIdUser(userId);
+			model.addAttribute("menu", menuList);
+		}
 		return "mobile/main";
 	}
 	
@@ -48,7 +64,7 @@ public class MenuController {
 		System.out.println("--------------menuid:"+menuId);
 		Menu menu;
 		String url;
-		MenuPermissions permissions = permissionService.getPermissionByUserId(userId, menuId);
+		MenuPermissions permissions = permissionService.getPermissionByUserId(userId, userId);
 		Role roleName=userService.findRoles(account);
 		int roleid=roleName.getRoleId();
 		UserRole userRole=userService.findUserRoleId(roleid);
@@ -56,9 +72,6 @@ public class MenuController {
 		if(permissions != null){
 			menu = menuService.selectById(menuId);
 			url = menu.getMenuLink();
-			if(menu.getMenuId()==3&&userRole.getId()==1){//判断权限以及用户等级
-				return "mobile/wrongRole";
-			}
 			return "mobile/"+url;
 		}else{
 			return "mobile/noPremissions";
